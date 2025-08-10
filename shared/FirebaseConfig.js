@@ -4,15 +4,15 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
-// ✅ Your Firebase configuration
+// ✅ Your Firebase configuration from env variables
 const firebaseConfig = {
-  apiKey: "AIzaSyBiR6eKuK-aN0JXxO7Evtvf3vABEXKI02w",
-  authDomain: "placement-projects.firebaseapp.com",
-  projectId: "placement-projects",
-  storageBucket: "placement-projects.appspot.com",
-  messagingSenderId: "81382306117",
-  appId: "1:81382306117:web:453abb59eb653d27704e2c",
-  measurementId: "G-SYGK37NL5J"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
 // ✅ Initialize Firebase App
@@ -21,3 +21,4 @@ const app = initializeApp(firebaseConfig);
 // ✅ Firestore and Auth Exports
 export const db = getFirestore(app);
 export const auth = getAuth(app);
+
